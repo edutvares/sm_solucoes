@@ -1,0 +1,112 @@
+main {
+  padding: 3vw 5vw;
+  grid-area: content;
+}
+
+.card {
+  background: #fff;
+  box-shadow: 0 2px 8px #f0f1f2;
+  overflow: auto;
+
+  .header {
+    width: 100%;
+    padding: 16px 24px;
+    border-bottom: 2px solid #ebeff2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer {
+    padding: 16px 24px;
+    border-top: 2px solid #ebeff2;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+  }
+}
+
+table {
+  @media screen and (max-width: 600px) {
+    font-size: 0.8em;
+  }
+
+  border-collapse: collapse;
+  width: 100%;
+  line-height: 1.5715;
+}
+
+td,
+th {
+  border: none;
+  padding: 8px;
+}
+
+td {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+tr {
+  white-space: nowrap;
+}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  color: #334d6e;
+  opacity: 0.5;
+  background: #fafafa;
+  text-transform: capitalize;
+
+  position: relative;
+}
+
+th:not(:last-child)::before {
+  content: "";
+  width: 1px;
+  height: 60%;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background: #0000000f;
+}
+
+img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+a {
+  color: #1890ff;
+  text-decoration: none;
+}
+
+th:nth-child(1),
+.id-row {
+  text-align: center;
+}
+
+button {
+  background: #1890ff;
+  padding: 10px 15px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  transition: all ease-in-out 200ms;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  &.danger {
+    background: #ff4d4f;
+  }
+}

@@ -1,0 +1,104 @@
+#modal-background {
+  width: 100vw;
+  height: 100vh;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+
+  z-index: 10;
+}
+
+#modal {
+  background: #fff;
+
+  position: fixed;
+  z-index: 11;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  box-shadow: 0 2px 8px rgb(179, 179, 179);
+
+  padding: 20px;
+}
+
+#close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #ff4d4f !important;
+  border-color: #ff4d4f !important;
+}
+
+h3 {
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input {
+  font-feature-settings: "tnum";
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  min-width: 0;
+  padding: 4px 11px;
+  color: #000000d9;
+  font-size: 14px;
+  line-height: 1.5715;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+input:hover {
+  border-color: #40a9ff;
+  border-right-width: 1px !important;
+}
+
+input:focus {
+  border-color: #40a9ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+  border-right-width: 1px !important;
+  outline: 0;
+}
+
+button {
+  line-height: 1.5715;
+  position: relative;
+  display: inline-block;
+  font-weight: 400;
+  white-space: nowrap;
+  text-align: center;
+  background-image: none;
+  border: 1px solid transparent;
+  box-shadow: 0 2px #00000004;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+  height: 32px;
+  padding: 4px 15px;
+  font-size: 14px;
+  border-radius: 2px;
+  color: #fff;
+  border-color: #1890ff;
+  background: #1890ff;
+}
+
+button:hover {
+  background: #40a9ff;
+  border-color: #40a9ff;
+}

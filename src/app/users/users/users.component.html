@@ -1,0 +1,43 @@
+<main>
+  <div class="card">
+    <div class="header">
+      <h2>Usuários</h2>
+      <button (click)="trogleModal()">Adicionar</button>
+    </div>
+    <table id="users">
+      <tr>
+        <th *ngFor="let column of headers">
+          {{ column }}
+        </th>
+      </tr>
+      <tr *ngFor="let row of users">
+        <td class="id-row">{{ row.id }}</td>
+        <td>
+          <img src="{{ row.avatar }}" alt="" />
+        </td>
+        <td>{{ row.first_name }} {{ row.last_name }}</td>
+        <td class="email-area">
+          <a href="mailto:{{ row.email }}" target="_blank">{{ row.email }}</a>
+        </td>
+        <td>
+          <button>Editar</button>
+          <button class="danger" (click)="removeUser(row.id)">Remover</button>
+        </td>
+      </tr>
+    </table>
+    <div class="footer">
+      <button *ngIf="page > 1" (click)="page = page - 1; getUsers()">
+        Anterior
+      </button>
+      <p>página {{ page }} de {{ totalPages }}</p>
+      <button *ngIf="page < totalPages" (click)="page = page + 1; getUsers()">
+        Próxima
+      </button>
+    </div>
+  </div>
+</main>
+<app-add-user-form
+  (newUser)="addUser($event)"
+  (trogleModal)="trogleModal()"
+  *ngIf="showModal"
+></app-add-user-form>

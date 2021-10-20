@@ -1,0 +1,23 @@
+header {
+  height: 10vh;
+  width: 100%;
+
+  /* position: fixed;
+  top: 0;
+  left: 0; */
+  background: #fff;
+  border-bottom: 2px solid #ebeff2;
+
+  & #wrapper {
+    width: 90vw;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+  }
+}
+
+nav {
+  background: #fff;
+  box-shadow: 6px 0px 18px rgba(0, 0, 0, 0.06);
+}
