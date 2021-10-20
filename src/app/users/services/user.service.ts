@@ -1,15 +1,15 @@
+import { environment } from './../../../environments/environment';
 import { NewUser, GetUserResponse, User } from './../model/user';
 import { CreateUserResponse, GetUsersResponse } from '../model/user';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { retry, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  API_URL = 'https://reqres.in/api';
+  API_URL = environment.API_PATH;
 
   constructor(private httpClient: HttpClient) {}
 
