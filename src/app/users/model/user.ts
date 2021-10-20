@@ -6,6 +6,20 @@ export interface GetUsersResponse {
   data: User[];
 }
 
+export interface GetUserResponse {
+  data: User;
+  support: SuportInfo;
+}
+
+export interface CreateUserResponse {
+  id: string;
+  email: string;
+  first_name: string;
+  last_name: string;
+  avatar: string;
+  createdAt: string;
+}
+
 export interface User {
   id: string;
   email: string;
@@ -21,11 +35,7 @@ export interface NewUser {
   avatar: string;
 }
 
-export interface CreateUserResponse {
-  id: string;
-  email: string;
-  first_name: string;
-  last_name: string;
-  avatar: string;
-  createdAt: string;
+export interface SuportInfo {
+  url: string;
+  text: string;
 }

@@ -2,7 +2,7 @@
   <div class="card">
     <div class="header">
       <h2>Usuários</h2>
-      <button (click)="trogleModal()">Adicionar</button>
+      <button (click)="trogleAddUserModal()">Adicionar</button>
     </div>
     <table id="users">
       <tr>
@@ -20,7 +20,7 @@
           <a href="mailto:{{ row.email }}" target="_blank">{{ row.email }}</a>
         </td>
         <td>
-          <button>Editar</button>
+          <button (click)="trogleEditUserModal(row.id)">Editar</button>
           <button class="danger" (click)="removeUser(row.id)">Remover</button>
         </td>
       </tr>
@@ -38,6 +38,12 @@
 </main>
 <app-add-user-form
   (newUser)="addUser($event)"
-  (trogleModal)="trogleModal()"
-  *ngIf="showModal"
+  (trogleModal)="trogleAddUserModal()"
+  *ngIf="showAddUserModal"
 ></app-add-user-form>
+<app-edit-user-form
+  (editUser)="editUser($event)"
+  (trogleModal)="trogleEditUserModal()"
+  *ngIf="showEditUserModal"
+  [userId]="editUserId"
+></app-edit-user-form>

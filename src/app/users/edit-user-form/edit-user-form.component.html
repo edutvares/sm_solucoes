@@ -1,0 +1,13 @@
+<div id="modal">
+  <button id="close-button" (click)="onTrogleModal()">x</button>
+  <h3>Editar Usuário</h3>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <input type="hidden" formControlName="id" value="" />
+    <input type="text" formControlName="first_name" placeholder="Nome" />
+    <input type="text" formControlName="last_name" placeholder="Sobrenome" />
+    <input type="email" formControlName="email" placeholder="E-mail" />
+    <input type="text" formControlName="avatar" placeholder="Avatar (URL)" />
+    <button type="submit">Editar</button>
+  </form>
+</div>
+<div id="modal-background" (click)="onTrogleModal()"></div>

@@ -1,4 +1,4 @@
-import { NewUser } from './../model/user';
+import { NewUser, GetUserResponse, User } from './../model/user';
 import { CreateUserResponse, GetUsersResponse } from '../model/user';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -24,10 +24,23 @@ export class UserService {
     );
   }
 
+  getById(userId: number) {
+    return this.httpClient.get<GetUserResponse>(
+      `${this.API_URL}/users/${userId}`
+    );
+  }
+
   newUser(newUser: NewUser): Observable<CreateUserResponse> {
     return this.httpClient.post<CreateUserResponse>(`${this.API_URL}/users`, {
       ...newUser,
     });
+  }
+
+  editUser(user: User) {
+    return this.httpClient.put<NewUser>(
+      `${this.API_URL}/users/${user.id}`,
+      user
+    );
   }
 
   deleteUser(userId: number) {

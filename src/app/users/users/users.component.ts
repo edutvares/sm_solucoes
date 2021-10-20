@@ -1,6 +1,6 @@
+import { User } from './../model/user';
 import { UserService } from '../services/user.service';
 import { Component, OnInit } from '@angular/core';
-import { User, NewUser } from '../model/user';
 
 @Component({
   selector: 'app-users',
@@ -14,7 +14,10 @@ export class UsersComponent implements OnInit {
   page: number = 1;
   totalPages: number = 1;
 
-  showModal: boolean = false;
+  showAddUserModal: boolean = false;
+  showEditUserModal: boolean = false;
+
+  editUserId: number = -1;
 
   constructor(private userService: UserService) {}
 
@@ -38,6 +41,17 @@ export class UsersComponent implements OnInit {
     this.users.push({ avatar, email, first_name, id, last_name });
   }
 
+  editUser(newUser: User) {
+    console.log('Dados inseridos na API');
+    console.log(newUser);
+    this.users.map((user, key) => {
+      if (user.id === newUser.id) {
+        this.users[key] = newUser;
+      }
+    });
+    this.trogleEditUserModal();
+  }
+
   removeUser(userId: string) {
     console.log('Apagando:', userId);
     this.userService.deleteUser(parseInt(userId)).subscribe(
@@ -51,7 +65,14 @@ export class UsersComponent implements OnInit {
     );
   }
 
-  trogleModal() {
-    this.showModal = !this.showModal;
+  trogleAddUserModal() {
+    this.showAddUserModal = !this.showAddUserModal;
+  }
+
+  trogleEditUserModal(userId: string = '-1') {
+    if (userId !== '-1') {
+      this.editUserId = parseInt(userId);
+    }
+    this.showEditUserModal = !this.showEditUserModal;
   }
 }
